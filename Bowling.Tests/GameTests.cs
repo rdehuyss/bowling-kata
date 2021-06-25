@@ -6,6 +6,7 @@ namespace Bowling.Tests
     public class GameTests
     {
         private Game game = new Game();
+
         
         [Fact]
         public void RollGutter()
