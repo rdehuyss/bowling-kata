@@ -20,6 +20,25 @@ namespace Bowling.Tests
             RollFrame(1, 0);
             Assert.Equal(1, game.Score());
         }
+        
+        [Fact]
+        public void RollCompleteGameWithOnePinPerFrame()
+        {
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            
+            RollFrame(1, 0);
+            Assert.Throws<InvalidOperationException>( () => game.Score());
+        }
 
         private void RollFrame(int firstRoll, int secondRoll)
         {
