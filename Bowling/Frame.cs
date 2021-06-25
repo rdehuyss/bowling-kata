@@ -1,4 +1,6 @@
-﻿namespace Bowling
+﻿using System;
+
+namespace Bowling
 {
     internal class Frame
     {
@@ -20,6 +22,16 @@
         public bool isCompleted()
         {
             return this.FirstRoll != null && this.SecondRoll != null;
+        }
+
+        internal int Score()
+        {
+            return (FirstRoll ?? 0) + (SecondRoll ?? 0);
+        }
+
+        internal bool isSpare()
+        {
+            return Score() == 10;
         }
     }
 }
