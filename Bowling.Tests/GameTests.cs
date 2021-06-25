@@ -40,6 +40,23 @@ namespace Bowling.Tests
             Assert.Throws<InvalidOperationException>( () => game.Score());
         }
 
+        [Fact]
+        public void SpareUsesScoresFromNextRoll()
+        {
+            RollFrame(2, 8);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            RollFrame(1, 0);
+            Assert.Equal(20, game.Score());
+        }
+
         private void RollFrame(int firstRoll, int secondRoll)
         {
             game.Roll(firstRoll);

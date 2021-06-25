@@ -10,13 +10,13 @@ namespace Bowling
         public void Roll(int pinsDown)
         {
             this.score += pinsDown;
-
+            
             frames++;
         }
 
         public int Score()
         {
-            if (frames >= 10)
+            if (frames > 20)
             {
                 throw new InvalidOperationException();
             }
